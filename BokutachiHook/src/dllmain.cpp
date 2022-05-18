@@ -119,8 +119,7 @@ void FormJSON(const scoreStruct scoreData, const playerStruct playerData, char m
 	std::cout << "in FormJSON" << std::endl;
 	std::cout << md5 << std::endl;
 	std::cout << lamp << std::endl;
-	json scorePacket;
-	scorePacket = {
+	json scorePacket = {
 		{"md5", md5},
 		{"playerData", {
 					{"autoScr", playerData.autoScr},
