@@ -96,10 +96,7 @@ void SendPOST(const std::string& reqBody, bool isDan)
 	struct curl_slist* headerPOST = nullptr;
 	headerPOST = curl_slist_append(headerPOST, "Content-Type: application/json");
 	headerPOST = curl_slist_append(headerPOST, apiKey.c_str());
-	if (!isDan)
-		curl_easy_setopt(request, CURLOPT_URL, url.c_str());
-	else
-		curl_easy_setopt(request, CURLOPT_URL, urlDan.c_str());
+	curl_easy_setopt(request, CURLOPT_URL, (!isDan ? url : urlDan).c_str());
 	curl_easy_setopt(request, CURLOPT_HTTPHEADER, headerPOST);
 	curl_easy_setopt(request, CURLOPT_POSTFIELDS, reqBody.c_str());
 	curl_easy_setopt(request, CURLOPT_CUSTOMREQUEST, "POST");
@@ -191,10 +188,7 @@ void DumpData()
 	memcpy(&playerData, (int*)(playerAddr + win10Offset), sizeof(playerData));
 	std::cout << "memcpy playerData done\n";
 	std::cout << "FormJSON call\n";
-	if (!isDan)
-		FormJSON(scoreData, playerData, md5, isDan, lamp);
-	else
-		FormJSON(scoreData, playerData, md5Dan, isDan, lamp);
+	FormJSON(scoreData, playerData, isDan ? md5Dan : md5, isDan, lamp);
 	std::cout << "DumpData exit\n";
 }
 
