@@ -183,13 +183,9 @@ void DumpData()
 	}
 	scoreStruct scoreData{};
 	memcpy(&scoreData, (int*)(scoreAddr + win10Offset), sizeof(scoreData));
-	std::cout << "memcpy scoreData done\n";
 	playerStruct playerData{};
 	memcpy(&playerData, (int*)(playerAddr + win10Offset), sizeof(playerData));
-	std::cout << "memcpy playerData done\n";
-	std::cout << "FormJSON call\n";
 	FormJSON(scoreData, playerData, isDan ? md5Dan : md5, isDan, lamp);
-	std::cout << "DumpData exit\n";
 }
 
 DWORD WINAPI HackThread(HMODULE hModule)
