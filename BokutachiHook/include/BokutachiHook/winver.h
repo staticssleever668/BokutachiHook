@@ -14,7 +14,7 @@ double getSysOpType()
 
     *(FARPROC*)&RtlGetVersion = GetProcAddress(GetModuleHandleA("ntdll"), "RtlGetVersion");
 
-    if (NULL != RtlGetVersion)
+    if (nullptr != RtlGetVersion)
     {
         osInfo.dwOSVersionInfoSize = sizeof(osInfo);
         RtlGetVersion(&osInfo);
