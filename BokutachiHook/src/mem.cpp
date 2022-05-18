@@ -7,11 +7,14 @@
 
 //https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
 
-constexpr unsigned int CALL = 0xE8;
-constexpr unsigned int JMP = 0xE9;
-constexpr unsigned int NOP = 0x90;
 static constexpr unsigned int CALL_SIZE = 5;
 static constexpr unsigned int JMP_SIZE = 5;
+
+enum Instruction {
+	CALL = 0xE8,
+	JMP = 0xE9,
+	NOP = 0x90,
+};
 
 bool mem::Detour32(void* src, void* dst, int len)
 {
