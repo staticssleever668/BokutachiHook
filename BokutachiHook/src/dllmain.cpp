@@ -74,16 +74,12 @@ struct playerStruct
 static constexpr unsigned int PLAYER_STRUCT_SIZE = 528;
 static_assert(sizeof(playerStruct) == PLAYER_STRUCT_SIZE, "Incorrect player struct size");
 
-char md5[33];
-char md5Dan[129];
 static constexpr unsigned int MD5_SIZE = 32;
 static constexpr unsigned int MD5DAN_SIZE = 128;
-int lamp;
 static constexpr const char* lamps[6] = { "NO PLAY", "FAIL", "EASY", "NORMAL", "HARD", "FULL COMBO" };
 static constexpr const char* gauges[6] = { "GROOVE", "HARD", "HAZARD", "EASY", "P-ATTACK", "G-ATTACK" };
 static constexpr const char* gameModes[8] = { "ALL", "SINGLE", "7K", "5K", "DOUBLE", "14K", "10K", "9K" };
 static constexpr const char* randomModes[6] = { "NORAN", "MIRROR", "RAN", "S-RAN", "H-RAN", "ALLSCR" };
-bool isDan;
 std::string url;
 std::string urlDan;
 std::string apiKey;
@@ -160,6 +156,10 @@ void FormJSON(const scoreStruct scoreData, const playerStruct playerData, char m
 
 void DumpData()
 {
+	bool isDan = false;
+	char md5Dan[129];
+	char md5[33];
+
 	std::cout << "DumpData start\n";
 	uintptr_t md5Addr;
 	uintptr_t lampAddr;
@@ -173,7 +173,7 @@ void DumpData()
 		md5Addr = mem::FindDMAAddy(moduleBase + 0x01CBFC, { 0x0, 0x0, 0x44, 0x0 });
 		lampAddr = mem::FindDMAAddy(moduleBase + 0x01CBFC, { 0x0, 0x0, 0x320 });
 	}
-	lamp = *(int*)lampAddr;
+	int lamp = *(int*)lampAddr;
 	memcpy(md5, (int*)md5Addr, MD5_SIZE);
 	md5[32] = '\0';
 	isDan = false;
