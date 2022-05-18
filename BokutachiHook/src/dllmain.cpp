@@ -153,7 +153,7 @@ void FormJSON(const scoreStruct scoreData, const playerStruct playerData, char m
 
 	std::string reqBody = scorePacket.dump();
 	std::cout << "SendPOST call\n";
-	SendPOST(std::move(reqBody), isDan);
+	SendPOST(reqBody, isDan);
 	std::cout << "FormJSON exit\n";
 }
 
@@ -192,9 +192,9 @@ void DumpData()
 	std::cout << "memcpy playerData done\n";
 	std::cout << "FormJSON call\n";
 	if (!isDan)
-		FormJSON(std::move(scoreData), std::move(playerData), md5, isDan, lamp);
+		FormJSON(scoreData, playerData, md5, isDan, lamp);
 	else
-		FormJSON(std::move(scoreData), std::move(playerData), md5Dan, isDan, lamp);
+		FormJSON(scoreData, playerData, md5Dan, isDan, lamp);
 	std::cout << "DumpData exit\n";
 }
 
