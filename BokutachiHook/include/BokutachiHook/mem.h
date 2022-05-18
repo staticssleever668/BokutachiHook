@@ -10,4 +10,4 @@ namespace mem
 {
 	bool Detour32(void* src, void* dst, int len);
 	uintptr_t FindDMAAddy(uintptr_t ptr, const std::vector<unsigned int>& offsets);
-}
+} // namespace mem
