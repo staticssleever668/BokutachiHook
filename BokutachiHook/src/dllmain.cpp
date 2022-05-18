@@ -13,8 +13,6 @@
 
 //#define DEBUG_CONSOLE_ENABLED
 
-static constexpr unsigned int SCORE_OFFSET = 0x6B1548;
-
 static uintptr_t moduleBase;
 static constexpr uintptr_t scoreAddr = 0x18715C;
 static constexpr uintptr_t playerAddr = 0xEF784;
@@ -187,7 +185,7 @@ void DumpData()
 	FormJSON(scoreData, playerData, isDan ? md5Dan : md5, isDan, lamp);
 }
 
-DWORD WINAPI HackThread(HMODULE hModule)
+DWORD WINAPI HackThread(HMODULE /*hModule*/)
 {
 #ifdef DEBUG_CONSOLE_ENABLED
 	AllocConsole();
@@ -238,7 +236,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 BOOL APIENTRY DllMain(HMODULE hModule,
 	DWORD  ul_reason_for_call,
-	LPVOID lpReserved
+	LPVOID /*lpReserved*/
 )
 {
 	switch (ul_reason_for_call)
