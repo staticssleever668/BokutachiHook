@@ -161,8 +161,8 @@ void DumpData()
 	char md5[33];
 
 	std::cout << "DumpData start\n";
-	uintptr_t md5Addr;
-	uintptr_t lampAddr;
+	uintptr_t md5Addr = 0;
+	uintptr_t lampAddr = 0;
 	if (winver < 10)
 	{
 		md5Addr = mem::FindDMAAddy(moduleBase + 0x08448C, { 0x18, 0x44, 0x0 });
