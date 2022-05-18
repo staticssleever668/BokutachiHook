@@ -16,7 +16,6 @@ int main()
 	std::ofstream out("BokutachiHook.log");
 	std::cout.rdbuf(out.rdbuf());
 
-
 	if (GetAuth() != 0)
 	{
 		PrintError();
