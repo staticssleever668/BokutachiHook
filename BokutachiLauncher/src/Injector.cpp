@@ -27,7 +27,7 @@ static DWORD GetProcId(const char* procName)
 					procId = procEntry.th32ProcessID;
 					break;
 				}
-			} while (Process32Next(hSnap, &procEntry));
+			} while (Process32Next(hSnap, &procEntry) != 0);
 		}
 	}
 	CloseHandle(hSnap);
