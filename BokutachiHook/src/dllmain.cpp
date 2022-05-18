@@ -88,7 +88,7 @@ std::string url;
 std::string urlDan;
 std::string apiKey;
 
-void SendPOST(const std::string reqBody, bool isDan)
+void SendPOST(const std::string& reqBody, bool isDan)
 {
 	CURL* request = curl_easy_init();
 	if (request == nullptr)
