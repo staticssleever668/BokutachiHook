@@ -15,12 +15,12 @@
 
 static constexpr unsigned int SCORE_OFFSET = 0x6B1548;
 
-uintptr_t moduleBase;
+static uintptr_t moduleBase;
 static constexpr uintptr_t scoreAddr = 0x18715C;
 static constexpr uintptr_t playerAddr = 0xEF784;
 
-double winver = 0;
-unsigned int win10Offset = 0;
+static double winver = 0;
+static unsigned int win10Offset = 0;
 
 struct scoreStruct
 {
@@ -80,9 +80,9 @@ static constexpr const char* lamps[6] = { "NO PLAY", "FAIL", "EASY", "NORMAL", "
 static constexpr const char* gauges[6] = { "GROOVE", "HARD", "HAZARD", "EASY", "P-ATTACK", "G-ATTACK" };
 static constexpr const char* gameModes[8] = { "ALL", "SINGLE", "7K", "5K", "DOUBLE", "14K", "10K", "9K" };
 static constexpr const char* randomModes[6] = { "NORAN", "MIRROR", "RAN", "S-RAN", "H-RAN", "ALLSCR" };
-std::string url;
-std::string urlDan;
-std::string apiKey;
+static std::string url;
+static std::string urlDan;
+static std::string apiKey;
 
 void SendPOST(const std::string& reqBody, bool isDan)
 {
