@@ -213,7 +213,6 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	}
 
 	winver = getSysOpType();
-	//winver = 10;
 	if (winver >= 10)
 	{
 		win10Offset = 0x10000;
