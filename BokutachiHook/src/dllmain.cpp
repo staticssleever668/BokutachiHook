@@ -13,11 +13,11 @@
 
 //#define DEBUG_CONSOLE_ENABLED
 
-constexpr unsigned int SCORE_OFFSET = 0x6B1548;
+static constexpr unsigned int SCORE_OFFSET = 0x6B1548;
 
 uintptr_t moduleBase;
-uintptr_t scoreAddr = 0x18715C;
-uintptr_t playerAddr = 0xEF784;
+static constexpr uintptr_t scoreAddr = 0x18715C;
+static constexpr uintptr_t playerAddr = 0xEF784;
 
 double winver = 0;
 unsigned int win10Offset = 0;
@@ -44,7 +44,7 @@ struct scoreStruct
 	std::int32_t unknown6[82];
 	std::int32_t hpgraph[1000];
 };
-constexpr unsigned int SCORE_STRUCT_SIZE = 4664;
+static constexpr unsigned int SCORE_STRUCT_SIZE = 4664;
 static_assert(sizeof(scoreStruct) == SCORE_STRUCT_SIZE, "Incorrect score struct size");
 
 struct playerStruct
@@ -71,18 +71,18 @@ struct playerStruct
 	std::int32_t unknown[50];
 	std::int32_t gameMode;
 };
-constexpr unsigned int PLAYER_STRUCT_SIZE = 528;
+static constexpr unsigned int PLAYER_STRUCT_SIZE = 528;
 static_assert(sizeof(playerStruct) == PLAYER_STRUCT_SIZE, "Incorrect player struct size");
 
 char md5[33];
 char md5Dan[129];
-constexpr unsigned int MD5_SIZE = 32;
-constexpr unsigned int MD5DAN_SIZE = 128;
+static constexpr unsigned int MD5_SIZE = 32;
+static constexpr unsigned int MD5DAN_SIZE = 128;
 int lamp;
-constexpr const char* lamps[6] = { "NO PLAY", "FAIL", "EASY", "NORMAL", "HARD", "FULL COMBO" };
-constexpr const char* gauges[6] = { "GROOVE", "HARD", "HAZARD", "EASY", "P-ATTACK", "G-ATTACK" };
-constexpr const char* gameModes[8] = { "ALL", "SINGLE", "7K", "5K", "DOUBLE", "14K", "10K", "9K" };
-constexpr const char* randomModes[6] = { "NORAN", "MIRROR", "RAN", "S-RAN", "H-RAN", "ALLSCR" };
+static constexpr const char* lamps[6] = { "NO PLAY", "FAIL", "EASY", "NORMAL", "HARD", "FULL COMBO" };
+static constexpr const char* gauges[6] = { "GROOVE", "HARD", "HAZARD", "EASY", "P-ATTACK", "G-ATTACK" };
+static constexpr const char* gameModes[8] = { "ALL", "SINGLE", "7K", "5K", "DOUBLE", "14K", "10K", "9K" };
+static constexpr const char* randomModes[6] = { "NORAN", "MIRROR", "RAN", "S-RAN", "H-RAN", "ALLSCR" };
 bool isDan;
 std::string url;
 std::string urlDan;

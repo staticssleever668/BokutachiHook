@@ -10,8 +10,8 @@
 constexpr unsigned int CALL = 0xE8;
 constexpr unsigned int JMP = 0xE9;
 constexpr unsigned int NOP = 0x90;
-constexpr unsigned int CALL_SIZE = 5;
-constexpr unsigned int JMP_SIZE = 5;
+static constexpr unsigned int CALL_SIZE = 5;
+static constexpr unsigned int JMP_SIZE = 5;
 
 bool mem::Detour32(void* src, void* dst, int len)
 {
