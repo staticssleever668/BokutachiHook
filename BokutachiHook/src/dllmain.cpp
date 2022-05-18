@@ -184,10 +184,10 @@ void DumpData()
 		md5Dan[128] = '\0';
 		isDan = true;
 	}
-	scoreStruct scoreData;
+	scoreStruct scoreData{};
 	memcpy(&scoreData, (int*)(scoreAddr + win10Offset), sizeof(scoreData));
 	std::cout << "memcpy scoreData done\n";
-	playerStruct playerData;
+	playerStruct playerData{};
 	memcpy(&playerData, (int*)(playerAddr + win10Offset), sizeof(playerData));
 	std::cout << "memcpy playerData done\n";
 	std::cout << "FormJSON call\n";
