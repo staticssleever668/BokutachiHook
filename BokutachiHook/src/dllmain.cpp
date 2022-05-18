@@ -174,9 +174,7 @@ void DumpData()
 		lampAddr = mem::FindDMAAddy(moduleBase + 0x01CBFC, { 0x0, 0x0, 0x320 });
 	}
 	lamp = *(int*)lampAddr;
-	std::cout << "memcpy md5\n";
 	memcpy(md5, (int*)md5Addr, MD5_SIZE);
-	std::cout << "memcpy md5 done\n";
 	md5[32] = '\0';
 	isDan = false;
 	if (strncmp(md5, "0000000000200000000000000000????", 16) == 0) // The "????" would be different depending on what dan is played (stella/satellite/genoside)."
